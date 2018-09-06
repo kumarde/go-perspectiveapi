@@ -1,2 +1,3 @@
-# perspectiveapi_go
-Go Library to communicate to the Perspective API
+# go-perspectiveapi 
+go-perspectiveapi is a Go client library for [Google Jigsaw's Perspective
+API](https://www.perspectiveapi.com/)
