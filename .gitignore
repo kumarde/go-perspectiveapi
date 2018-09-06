@@ -1,0 +1,4 @@
+.idea/
+*.iml
+go-perspectiveapi
+config.go
