@@ -53,7 +53,6 @@ func NewAnalyzeCommentRequest(commentText string) *AnalyzeCommentRequest {
 		Languages: getDefaultLanguages(),
 		RequestedAttributes: getDefaultRequestedAttributes(),
 	}
-	printAnalyzeCommentRequestJSON(&analyzeCommentRequest)
 	return &analyzeCommentRequest
 }
 
