@@ -8,7 +8,7 @@ import (
 type AnalyzeCommentRequest struct {
 	CommentText *TextEntry `json:"comment"`
 	Languages []string `json:"languages"`
-	RequestedAttributes *RequestedAttributes `json:"requestedAttributes"`
+	RequestedAttributes RequestedAttributes `json:"requestedAttributes"`
 }
 
 type TextEntry struct {
@@ -24,7 +24,7 @@ type Attribute struct {
 }
 
 type AnalyzeCommentResponse struct {
-	AttributeStores *AttributeScores `json:"attributeScores"`
+	AttributeScores AttributeScores `json:"attributeScores"`
 }
 
 type AttributeScores map[string]*Scores
@@ -61,13 +61,13 @@ func printAnalyzeCommentRequestJSON(acr *AnalyzeCommentRequest) {
 	fmt.Println(string(marshalledJSON))
 }
 
-func getDefaultRequestedAttributes() *RequestedAttributes {
+func getDefaultRequestedAttributes() RequestedAttributes {
 	requestedAttributes := RequestedAttributes{}
 	for _, attributeName := range(DEFAULT_ATTRIBUTES) {
 		newAttribute := Attribute{}
 		requestedAttributes[attributeName] = &newAttribute
 	}
-	return &requestedAttributes
+	return requestedAttributes
 }
 
 func getDefaultLanguages() []string {
