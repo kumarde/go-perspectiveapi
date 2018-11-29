@@ -12,14 +12,14 @@ type Client struct {
 	apiKey string
 }
 
-func (c *Client) AnalyzeComment(commentText string) *AnalyzeCommentResponse {
+func (c *Client) AnalyzeComment(commentText string) (*AnalyzeCommentResponse, error) {
 	analyzeCommentRequest := NewAnalyzeCommentRequest(commentText)
 	analyzeCommentResponse := AnalyzeCommentResponse{}
 	_, err := c.sling.New().Post("").BodyJSON(analyzeCommentRequest).ReceiveSuccess(&analyzeCommentResponse)
 	if err != nil {
 		log.Error("there was an error : ", err)
 	}
-	return &analyzeCommentResponse
+	return &analyzeCommentResponse, err
 }
 
 func NewAnalyzeCommentClient(apiKey string) *Client {
